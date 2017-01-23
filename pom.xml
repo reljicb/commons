@@ -4,9 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.reljicb.commons</groupId>
+    <groupId>org.reljicb</groupId>
     <artifactId>commons</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <s3.wagon.version>1.2.1</s3.wagon.version>
+        <!--<s3.bucket.name>org.reljicb.artifacts</s3.bucket.name>-->
+        <s3.bucket.name>maven-repository.reljicb.org</s3.bucket.name>
+    </properties>
 
     <repositories>
         <repository>
@@ -19,6 +25,21 @@
         </repository>
     </repositories>
 
+    <distributionManagement>
+        <site>
+            <id>s3.site</id>
+            <url>s3://${s3.bucket.name}/site</url>
+        </site>
+        <repository>
+            <id>s3.release</id>
+            <url>s3://${s3.bucket.name}/release</url>
+        </repository>
+        <snapshotRepository>
+            <id>s3.snapshot</id>
+            <url>s3://${s3.bucket.name}/snapshot</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <dependencies>
         <dependency>
             <groupId>com.google.guava</groupId>
@@ -26,5 +47,15 @@
             <version>21.0</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <extensions>
+            <extension>
+                <groupId>org.kuali.maven.wagons</groupId>
+                <artifactId>maven-s3-wagon</artifactId>
+                <version>${s3.wagon.version}</version>
+            </extension>
+        </extensions>
+    </build>
 
 </project>
