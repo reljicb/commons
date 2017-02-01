@@ -4,7 +4,7 @@
 
     <groupId>org.reljicb</groupId>
     <artifactId>commons</artifactId>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
 
     <properties>
         <s3.wagon.version>1.2.1</s3.wagon.version>
@@ -16,7 +16,7 @@
         <connection>scm:git:git@github.com:reljicb/commons.git</connection>
         <developerConnection>scm:git:git@github.com:reljicb/commons.git</developerConnection>
         <url>https://github.com/reljicb/commons</url>
-      <tag>commons-1.0</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <repositories>
