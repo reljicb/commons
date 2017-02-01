@@ -2,3 +2,5 @@
 .idea/
 commons.iml
 target/
+pom.xml.releaseBackup
+release.properties
